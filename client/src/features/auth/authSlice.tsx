@@ -14,7 +14,7 @@ const initialState: AuthState = {
 
 export const register = createAsyncThunk( "auth/register", async (body: RegisterRequest, thunkAPI) => {
     try {
-      const { data } = await axios.post("/api/cinema/v1/users/signup", body);
+      const { data } = await axios.post("http://13.61.141.182:5000/api/cinema/v1/users/signup", body);
 
         if(data.status === "success"){
             const payload = jwtDecode<UserPayload>(data.token)
@@ -34,7 +34,7 @@ export const register = createAsyncThunk( "auth/register", async (body: Register
 
 export const login = createAsyncThunk( "auth/login", async (body: LoginRequest, thunkAPI) => {
     try {
-      const { data } = await axios.post("/api/cinema/v1/users/login", body);
+      const { data } = await axios.post("http://13.61.141.182:5000/api/cinema/v1/users/login", body);
 
         if(data.status === "success"){
             const payload = jwtDecode<UserPayload>(data.token)
@@ -53,7 +53,7 @@ export const login = createAsyncThunk( "auth/login", async (body: LoginRequest, 
 
 export const getUserInformation = createAsyncThunk( "auth/userInformation", async (id: string, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/cinema/v1/users/${id}`);
+      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/users/${id}`);
         
         return data;
     } catch (error) {

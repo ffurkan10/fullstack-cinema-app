@@ -19,7 +19,7 @@ export const createMenu = createAsyncThunk( "menu/createMenu", async ( body : an
             }
         }
 
-      const { data } = await axios.post(`/api/cinema/v1/menus/`, body , config);
+      const { data } = await axios.post(`http://13.61.141.182:5000/api/cinema/v1/menus/`, body , config);
         console.log(data);
 
         if(data.status === "success"){
@@ -43,7 +43,7 @@ export const getAllMenus = createAsyncThunk( "menu/getAllMenus", async ( _, thun
             }
         }
 
-      const { data } = await axios.get(`/api/cinema/v1/menus/` , config);
+      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/menus/` , config);
         console.log(data);
         
         return data.data;
@@ -62,7 +62,7 @@ export const updateMenu = createAsyncThunk( "menu/updateMenu", async ( {id, body
             }
         }
 
-      const { data } = await axios.patch(`/api/cinema/v1/menus/${id}`, body , config);
+      const { data } = await axios.patch(`http://13.61.141.182:5000/api/cinema/v1/menus/${id}`, body , config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));
@@ -85,7 +85,7 @@ export const deleteMenu = createAsyncThunk( "menu/deleteMenu", async ( id: strin
             }
         }
 
-      const { data } = await axios.delete(`/api/cinema/v1/menus/${id}` , config);
+      const { data } = await axios.delete(`http://13.61.141.182:5000/api/cinema/v1/menus/${id}` , config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));

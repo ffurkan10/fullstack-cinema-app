@@ -13,7 +13,7 @@ const initialState: MovieState = {
 
 export const getAllMovies = createAsyncThunk( "movie/getAllMovies", async (_ , thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/cinema/v1/movies/`);
+      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/movies/`);
         
         return data;
     } catch (error) {
@@ -24,7 +24,7 @@ export const getAllMovies = createAsyncThunk( "movie/getAllMovies", async (_ , t
 
 export const getMovieBySlug = createAsyncThunk( "movie/getMovieBySlug", async (slug: string, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/cinema/v1/movies/slug/${slug}`);
+      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/movies/slug/${slug}`);
         
         return data.data;
     } catch (error) {
@@ -42,7 +42,7 @@ export const updateMovie = createAsyncThunk( "movie/updateMovie", async ({movieI
             },
         };
         
-        const { data } = await axios.patch(`/api/cinema/v1/movies/${movieId}`, body, config);
+        const { data } = await axios.patch(`http://13.61.141.182:5000/api/cinema/v1/movies/${movieId}`, body, config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));
@@ -66,7 +66,7 @@ export const addMovie = createAsyncThunk( "movie/addMovie", async ( body: AddMov
             },
         };
         
-        const { data } = await axios.post(`/api/cinema/v1/movies/`, body, config);
+        const { data } = await axios.post(`http://13.61.141.182:5000/api/cinema/v1/movies/`, body, config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));
@@ -89,7 +89,7 @@ export const deleteMovie = createAsyncThunk( "movie/deleteMovie", async ( movieI
             },
         };
         
-        const { data } = await axios.delete(`/api/cinema/v1/movies/${movieId}`, config);
+        const { data } = await axios.delete(`http://13.61.141.182:5000/api/cinema/v1/movies/${movieId}`, config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));

@@ -18,7 +18,7 @@ export const getAllTheaters = createAsyncThunk( "theater/getAllTheaters", async 
             }
         }
 
-      const { data } = await axios.get(`/api/cinema/v1/theaters/`, config);
+      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/theaters/`, config);
         
         return data.data;
     } catch (error) {

@@ -20,7 +20,7 @@ export const updateSeats = createAsyncThunk( "theater/updateSeats", async ( body
             }
         }
 
-      const { data } = await axios.post(`/api/cinema/v1/screenings/seats`, body , config);
+      const { data } = await axios.post(`http://13.61.141.182:5000/api/cinema/v1/screenings/seats`, body , config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));
