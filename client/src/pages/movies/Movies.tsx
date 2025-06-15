@@ -18,7 +18,7 @@ const Container = styled.div`
     .movies-content{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        gap: 40px;
     }
 
     @media (max-width: 1300px){
@@ -30,20 +30,19 @@ const Container = styled.div`
     @media (max-width: 900px){
         .movies-content{
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
         }
     }
      @media (max-width: 700px){
         .movies-content{
-            gap: 5px;
+            gap: 20px;
         }
     }
-    @media (max-width: 600px){
+    @media (max-width: 550px){
         .movies-content{
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 30px;
         }
     }
 `

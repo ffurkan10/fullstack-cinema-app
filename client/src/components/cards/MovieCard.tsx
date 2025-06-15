@@ -14,7 +14,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    padding: 20px;
     cursor: pointer;
     position: relative;
     .favorite-icon{
@@ -75,6 +74,16 @@ const Container = styled.div`
             }
         }
     }
+
+     @media (max-width: 550px){
+        &:hover {
+            transform: none !important;
+        }
+        .image-box{
+            height: auto;
+            margin-bottom: 10px;
+        }
+    }
 `
 
 const MovieCard = ({data}: {data:  MovieProps}) => {
@@ -107,20 +116,8 @@ const MovieCard = ({data}: {data:  MovieProps}) => {
             </div>
                     
         }
-        {/* {   
-            isFavorite ? (
-                <div onClick={() => dispatch(removeFavorite(data._id))} className="favorite-icon">
-                    <FaHeart />
-                </div>
-            ) : (
-                <div onClick={() => dispatch(addFavorite(data._id))} className="favorite-icon">
-                    <FaRegHeart />
-                </div>
-            )
-        } */}
         
         <Link to={`/filmler/${data.slug}`}>
-
             <div className='image-box'>
                 <img src={data.photo} alt="" />
             </div>
