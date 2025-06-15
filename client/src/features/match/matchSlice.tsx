@@ -11,7 +11,7 @@ const initialState: MatchState = {
 
 export const getAllMatches = createAsyncThunk( "match/getAllMatches", async (_ , thunkAPI) => {
     try {
-      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/matches/`);
+      const { data } = await axios.get(`https://fullstack-cinema-app-1.onrender.com/api/cinema/v1/matches/`);
         
         return data;
     } catch (error) {
@@ -29,7 +29,7 @@ export const createMatch = createAsyncThunk( "match/createMatch", async (body: a
             },
         }
 
-        const { data } = await axios.post(`http://13.61.141.182:5000/api/cinema/v1/matches/`, body, config);
+        const { data } = await axios.post(`https://fullstack-cinema-app-1.onrender.com/api/cinema/v1/matches/`, body, config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));
@@ -53,7 +53,7 @@ export const removeMatch = createAsyncThunk( "match/remove", async ({id, movieId
             },
         }
 
-        const { data } = await axios.delete(`http://13.61.141.182:5000/api/cinema/v1/matches/removeMatch/${id}/${movieId}`, config);
+        const { data } = await axios.delete(`https://fullstack-cinema-app-1.onrender.com/api/cinema/v1/matches/removeMatch/${id}/${movieId}`, config);
 
         if(data.status === "success"){
             thunkAPI.dispatch(showModal("result"));

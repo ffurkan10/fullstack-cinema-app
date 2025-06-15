@@ -20,7 +20,7 @@ export const getAllFavorites = createAsyncThunk( "favorites/getAllFavorites", as
             },
         }
 
-      const { data } = await axios.get(`http://13.61.141.182:5000/api/cinema/v1/favorites/`, config);
+      const { data } = await axios.get(`https://fullstack-cinema-app-1.onrender.com/api/cinema/v1/favorites/`, config);
         
         return data.data;
     } catch (error) {
@@ -40,7 +40,7 @@ export const addFavorite = createAsyncThunk( "favorites/addFavorite", async (mov
             },
         }
 
-      const { data } = await axios.post(`http://13.61.141.182:5000/api/cinema/v1/favorites/${movieId}`,"", config);
+      const { data } = await axios.post(`https://fullstack-cinema-app-1.onrender.com/api/cinema/v1/favorites/${movieId}`,"", config);
         
         return data.data;
     } catch (error) {
@@ -60,7 +60,7 @@ export const removeFavorite = createAsyncThunk( "favorites/remove", async (movie
             },
         }
 
-      const { data } = await axios.delete(`http://13.61.141.182:5000/api/cinema/v1/favorites/${movieId}`, config);
+      const { data } = await axios.delete(`https://fullstack-cinema-app-1.onrender.com/api/cinema/v1/favorites/${movieId}`, config);
         
         return data.data;
     } catch (error) {
