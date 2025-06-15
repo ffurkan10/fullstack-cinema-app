@@ -61,25 +61,22 @@ const menuRouter = require("./routes/menuRoutes");
 const app = express();
 
 // ✅ CORS ayarları (en başta olmalı!)
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', "https://fullstack-cinema-app.vercel.app"];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
-    // origin null ise (ör: Postman), izin ver
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('CORS hatası: İzin verilmeyen origin'));
+      callback(null, false);
     }
   },
-  credentials: true
-}));
+  credentials: true,
+  methods: "GET,POST,PUT,DELETE,OPTIONS"
+};
 
-// ✅ Preflight istekleri için destek
-app.options('*', cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // 🌐 Geliştirme logları
 app.use(morgan("dev"));
