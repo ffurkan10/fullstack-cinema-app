@@ -8,6 +8,7 @@ import 'moment/locale/tr';
 import Spinner from "../../components/loading/Loading";
 import SeatSection from "../../components/seatSection/SeatSection";
 import MovieDetailMain from "../../components/movieDetailMain/MovieDetailMain";
+import { setSelectedScreening } from "../../features/seat/seatSlice";
 
 const Container = styled.div<{ background: string }>`
     width: 100%;
@@ -29,6 +30,7 @@ const MovieDetail = () => {
     useEffect(() => {
       return () => {
         dispatch(setSelectedMovie(null));
+        dispatch(setSelectedScreening(null));
       }
     }, [])
     

@@ -29,7 +29,6 @@ const App = () => {
           <Route path="/kayit-ol" element={<Register />} />
 
           <Route path="/" element={<Movies />} />
-          {/* <Route path="/filmler" element={<Movies />} /> */}
           <Route path="/filmler/:slug" element={<MovieDetail />} />
           <Route path="/favoriler" element={<Favorite />} />
           <Route path="/menuler" element={<Menus />} />

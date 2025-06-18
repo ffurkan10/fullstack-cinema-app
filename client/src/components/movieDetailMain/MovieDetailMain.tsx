@@ -98,6 +98,7 @@ const MovieDetailMain = () => {
     const {selectedScreening, selectedSeatList} = useSelector((state: RootState) => state.seat);
     const {favoriteList} = useSelector((state: RootState) => state.favorite);
     const { selectedMovie } = useSelector((state: RootState) => state.movie);
+    const token = localStorage.getItem('token');
 
 
     useEffect(() => {
@@ -134,15 +135,18 @@ const MovieDetailMain = () => {
             <div className="title">
                 <h1>{selectedMovie.title}</h1>
                 {
-                    isFavorite ? (
-                        <div onClick={() => dispatch(removeFavorite(selectedMovie._id))} className="favorite-icon">
-                            <FaHeart />
-                        </div>
-                    ) : (
-                        <div onClick={() => dispatch(addFavorite(selectedMovie._id))} className="favorite-icon">
-                            <FaRegHeart />
-                        </div>
-                    )
+                  token &&
+                    <div className="favorite-icon" onClick={() => {
+                        if (isFavorite) {
+                            dispatch(removeFavorite(selectedMovie._id));
+                        } else {
+                            dispatch(addFavorite(selectedMovie._id));
+                        }
+                    }
+                    }>
+                        {isFavorite ? <FaHeart /> : <FaRegHeart />}
+                    </div>
+                            
                 }
             </div>
             <p>{selectedMovie.description}</p>
