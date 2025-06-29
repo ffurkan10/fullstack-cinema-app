@@ -68,7 +68,7 @@ const HeaderUserCard = () => {
             <div onClick={() => dispatch(setIsOpenAccount(false))} className="actions">
                 {
                     userRole === "admin" && (
-                        <Link to="/admin">Admin Paneli</Link>
+                        <Link to="/admin/filmler">Admin Paneli</Link>
                     )
                 }
                 <p onClick={() => dispatch(logout())}>Çıkış Yap</p>

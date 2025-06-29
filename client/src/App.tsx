@@ -42,7 +42,6 @@ const App = () => {
             <AdminLayout />
           </PrivateRoute>
         }>
-          <Route path="/admin" element={<Admin />} />
           <Route path="/admin/filmler" element={<AdminMovie />} />
           <Route path="/admin/filmler-ve-salonlar" element={<AdminMovieAndSaloon />} />
           <Route path="/admin/menuler" element={<AdminMenus />} />
